@@ -1,4 +1,4 @@
-package big_o
+package main
 
 import (
 	"fmt"
@@ -39,7 +39,6 @@ func logarithmic_time(customers []string, target string) {
 			break
 		}
 	}
-	logarithmic_time(customers, target)
 	elapsed := time.Since(start)
 	fmt.Printf("Logarithmic Time O(log n) took %s\n", elapsed)
 }
