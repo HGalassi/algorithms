@@ -1,22 +1,30 @@
 package main
 
 import (
-	cbt "github.com/HGalassi/algorithms/go/internal/cubic_time"
-	ext "github.com/HGalassi/algorithms/go/internal/exponential_time"
-	lt "github.com/HGalassi/algorithms/go/internal/linear_time"
-	llt "github.com/HGalassi/algorithms/go/internal/log_linear_time"
-	lgt "github.com/HGalassi/algorithms/go/internal/logarithmic_time"
-	qdt "github.com/HGalassi/algorithms/go/internal/quadratic_time"
+	"fmt"
+
+	ctt "github.com/HGalassi/algorithms/go/internal/big_o/constant_time"
+	cbt "github.com/HGalassi/algorithms/go/internal/big_o/cubic_time"
+	ext "github.com/HGalassi/algorithms/go/internal/big_o/exponential_time"
+	lt "github.com/HGalassi/algorithms/go/internal/big_o/linear_time"
+	llt "github.com/HGalassi/algorithms/go/internal/big_o/log_linear_time"
+	lgt "github.com/HGalassi/algorithms/go/internal/big_o/logarithmic_time"
+	qdt "github.com/HGalassi/algorithms/go/internal/big_o/quadratic_time"
 	"github.com/HGalassi/algorithms/go/internal/timer"
 )
 
 func main() {
 
 	//Linear Time O(n)
-	var customers = []string{"Alice", "Bob", "Charlie", "David", "Eve", "Elis"}
-	lt.LinearTime(customers)
+	var customers = []string{"Alice", "Bob", "Charlie", "David", "Eve", "Elis", "Frank", "Grace", "Heidi", "Ivan", "Judy", "Mallory",
+		"Niaj", "Olivia", "Peggy", "Quentin", "Rupert", "Sybil", "Trent", "Uma"}
+
+	// Constant Time O(1)
+	ctt.ConstantTime()
 	// Logarithmic Time O(log n)
 	lgt.Logarithmic_time(customers, "Eve")
+	// Linear Time O(n)
+	lt.LinearTime(customers)
 	// Logarithmic Time O(log n) increase
 	lgt.Append_customers_for_logarithmic_time_increase(&customers, []string{"Frank", "Grace", "Heidi", "Ivan", "Judy", "Mallory", "Niaj",
 		"Olivia", "Peggy", "Quentin", "Rupert", "Sybil", "Trent", "Uma", "Victor",
@@ -50,4 +58,14 @@ func main() {
 
 	timer.PrintExecutions()
 
+	response := Fatorial(5)
+	fmt.Printf("Fatorial de 5 é: %d\n", response)
+
+	Challenge(1)
+	Linear_search_example()
+	Binary_search_example()
+	fmt.Print(Challenge_binary_search())
+	arr := []int{1, 3, 2, 6}
+	Bubble_sort(&arr)
+	fmt.Printf("%v\n", arr)
 }
